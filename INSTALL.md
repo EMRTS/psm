@@ -397,7 +397,7 @@ EOF
 
     $ cp gradle.properties.template gradle.properties
 
-    ### Now edit the file to add correct values for 
+    ### Now edit the file to add correct values for
     ### `systemProp.databaseUser` and `systemProp.databasePassword`. ###
     $ {your-favorite-editor} gradle.properties
     ```
