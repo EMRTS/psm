@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns="https://www.liquibase.org/xml/ns/dbchangelog"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+                      https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
   <changeSet author="" id="issue254-create-hibernate-sequence">
     <validCheckSum>ANY</validCheckSum>
@@ -2125,7 +2125,7 @@
       </addColumn>
     </rollback>
   </changeSet>
-  
+
   <changeSet author="" id="issue949-remove-provider-profile-control-no">
     <dropColumn tableName="provider_profiles"
       columnName="profile_id"/>
@@ -2522,7 +2522,7 @@
         newColumnName="ticket_id" />
     </rollback>
   </changeSet>
-  
+
   <changeSet author="" id="issue485-rename-enrollment-and-ticket-to-application-enrollment_statuses">
     <dropPrimaryKey tableName="enrollment_statuses" />
     <dropUniqueConstraint

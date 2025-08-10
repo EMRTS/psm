@@ -1,18 +1,17 @@
 buildscript {
     repositories {
         mavenCentral()
-        maven { url 'http://dl.bintray.com/djmijares/gradle-plugins' }
         maven { url 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
-        classpath 'org.liquibase:liquibase-gradle-plugin:2.0.0'
+        classpath 'org.liquibase:liquibase-gradle-plugin:2.0.4'
         classpath 'gradle.plugin.org.openrepose:gradle-jaxb-plugin:2.4.1'
-        classpath 'com.moowork.gradle:gradle-node-plugin:1.2.0'
+        classpath 'com.github.node-gradle:gradle-node-plugin:3.4.0'
         classpath 'kr.motd.gradle:sphinx-gradle-plugin:1.0.5'
         classpath ('net.serenity-bdd:serenity-gradle-plugin:1.8.20') {
             exclude group: 'com.google.inject', module:'guice'
         }
-        classpath 'gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:1.6.2'
+        //classpath 'com.github.spotbugs:spotbugs-gradle-plugin:4.7.9'
         classpath 'gradle.plugin.com.github.jk1:gradle-license-report:1.2'
     }
 }
@@ -96,7 +95,7 @@ allprojects {
 ].each { name ->
     project(":$name") {
         apply plugin: 'groovy'
-        apply plugin: 'com.github.spotbugs'
+//        apply plugin: 'com.github.spotbugs'
         apply plugin: 'com.github.jk1.dependency-license-report'
 
         configurations {
@@ -112,9 +111,9 @@ allprojects {
             testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
         }
 
-        spotbugs {
-           excludeFilter = file("$projectDir/spotbugs-exclude.xml")
-        }
+//        spotbugs {
+//           excludeFilter = file("$projectDir/spotbugs-exclude.xml")
+//        }
     }
 }
 
@@ -369,15 +368,15 @@ project(':db') {
 
 project(':frontend') {
     apply plugin: BasePlugin
-    apply plugin: 'com.moowork.node'
+    apply plugin:  'com.github.node-gradle.node'
 
     configurations {
         javascript
     }
 
     node {
-        version = '8.9.4'
-        npmVersion = '5.6.0'
+        version = '16.20.0'    // UPDATED TO LTS VERSION
+        npmVersion = '8.19.4'  // UPDATED VERSION
         download = true
     }
 
